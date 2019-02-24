@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Criteria\OrderCriteria;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
@@ -45,8 +46,9 @@ class Customer
 
     public function getRecentOrders($limit = 5) : Collection
     {
-        $criteria = Criteria::create()
-            ->orderBy(['date' => Criteria::DESC])
+        $criteria = OrderCriteria::create();
+        $criteria = $criteria
+            ->orderBy(['date' => $criteria::DESC])
             ->setMaxResults($limit)
         ;
 

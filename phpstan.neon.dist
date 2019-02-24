@@ -1,0 +1,10 @@
+parameters:
+    doctrine:
+        objectManagerLoader: config/phpstan_doctrine_manager.php
+    excludes_analyse:
+    ignoreErrors:
+services:
+
+includes:
+    - vendor/otobank/phpstan-doctrine-criteria/extension.neon
+    - vendor/otobank/phpstan-doctrine-criteria/rules.neon
