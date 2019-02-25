@@ -44,4 +44,9 @@ class Order
     {
         return sprintf('%s: %s - %s', $this->id, $this->date->format('Y-m-d'), $this->product);
     }
+
+    public function getDate() : \DateTimeInterface
+    {
+        return $this->date;
+    }
 }
