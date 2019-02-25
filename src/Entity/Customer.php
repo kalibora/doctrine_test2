@@ -36,9 +36,9 @@ class Customer
         $this->orders = new ArrayCollection();
     }
 
-    public function order(\DateTimeImmutable $dae, int $price) : self
+    public function order(\DateTimeImmutable $date, string $product) : self
     {
-        $this->orders[] = new Order($dae, $price, $this);
+        $this->orders[] = new Order($date, $product, $this);
 
         return $this;
     }

@@ -23,9 +23,9 @@ class Order
     private $date;
 
     /**
-     * @ORM\Column(type="bigint")
+     * @ORM\Column(type="string")
      */
-    private $total;
+    private $product;
 
     /**
      * @ORM\ManyToOne(targetEntity="Customer", inversedBy="orders")
@@ -33,15 +33,15 @@ class Order
      */
     private $customer;
 
-    public function __construct(\DateTimeInterface $date, int $total, Customer $customer)
+    public function __construct(\DateTimeInterface $date, string $product, Customer $customer)
     {
         $this->date = $date;
-        $this->total = $total;
+        $this->product = $product;
         $this->customer = $customer;
     }
 
     public function __toString(): string
     {
-        return sprintf('%s: %s - %s', $this->id, $this->date->format('Y-m-d'), $this->total);
+        return sprintf('%s: %s - %s', $this->id, $this->date->format('Y-m-d'), $this->product);
     }
 }

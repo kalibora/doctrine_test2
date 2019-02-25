@@ -23,7 +23,7 @@ class TestErrorCriteriaCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $customer = $this->customerRepository->findOneByName('kalibora');
-        $customer->order(new \DateTimeImmutable('now'), 3000);
+        $customer->order(new \DateTimeImmutable('now'), 'ようかん');
 
         foreach ($customer->getRecentOrders() as $order) {
             echo $order, PHP_EOL;
